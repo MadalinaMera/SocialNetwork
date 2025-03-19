@@ -5,5 +5,5 @@ low buget Facebook
 functionalities:
 
 * log into account
-* add/delete friend
+* add/delete friends
 * message friends
