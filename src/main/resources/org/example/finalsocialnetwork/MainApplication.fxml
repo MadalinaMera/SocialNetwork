@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.finalsocialnetwork.controllers.UserController">
+    <TabPane fx:id="mainTabPane" prefHeight="607.0" prefWidth="914.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="friendsTab" text="Friends">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <Label fx:id="PageTitle" layoutX="477.0" layoutY="24.0" text="Your friends">
+                                <font>
+                                    <Font name="Centaur" size="42.0" />
+                                </font>
+                            </Label>
+                            <TableView fx:id="friends_table" layoutX="378.0" layoutY="109.0" prefHeight="218.0" prefWidth="410.0">
+                                <columns>
+                                    <TableColumn fx:id="username_column" prefWidth="97.5999755859375" text="Username" />
+                                    <TableColumn fx:id="firstname_column" prefWidth="104.7999267578125" text="Firstname" />
+                                    <TableColumn fx:id="lastname_column" prefWidth="91.99997558593748" text="Lastname" />
+                                    <TableColumn fx:id="friendsSince" prefWidth="115.19998779296873" text="Friends since" />
+                                </columns>
+                            </TableView>
+                            <Button fx:id="deletebutton" layoutX="526.0" layoutY="438.0" mnemonicParsing="false" onAction="#removeFriend" prefHeight="51.0" prefWidth="97.0" text="DELETE" />
+                            <Button fx:id="addbutton" layoutX="126.0" layoutY="237.0" mnemonicParsing="false" onAction="#addFriend" prefHeight="51.0" prefWidth="97.0" text="ADD" />
+                            <VBox layoutX="67.0" layoutY="35.0" prefHeight="182.0" prefWidth="215.0">
+                                <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="215.0" text="Find new friends">
+                                        <font>
+                                            <Font name="Cambria Math" size="21.0" />
+                                        </font>
+                                    </Label>
+                                    <ComboBox fx:id="users" editable="true" prefHeight="43.0" prefWidth="218.0" />
+                                </children>
+                            </VBox>
+                            <VBox layoutX="57.0" layoutY="328.0" prefHeight="238.0" prefWidth="261.0">
+                                <children>
+                                    <Label alignment="CENTER" prefHeight="42.0" prefWidth="277.0" text="Notifications">
+                                        <font>
+                                            <Font name="Cambria Math" size="26.0" />
+                                        </font>
+                                    </Label>
+                                    <ListView fx:id="friendRequests" prefHeight="145.0" prefWidth="213.0" />
+                                    <Button fx:id="acceptFriendRequestButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="268.0" text="Accept friend request" />
+                                </children>
+                            </VBox>
+                            <Button fx:id="prevButton" layoutX="431.0" layoutY="346.0" mnemonicParsing="false" onAction="#onPreviousPage" text="&lt; Previous" />
+                            <Button fx:id="nextButton" layoutX="636.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNextPage" text="Next &gt;" />
+                            <Label fx:id="pageNumber" layoutX="561.0" layoutY="350.0" />
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+            <Tab fx:id="messagesTab" onSelectionChanged="#onMessagesTabSelected" text="Messages">
+                <content>
+                    <fx:include fx:id="messagesView" source="MessagesView.fxml" />
+                </content>
+            </Tab>
+        </tabs>
+    </TabPane>
+</AnchorPane>
